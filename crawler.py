@@ -20,13 +20,16 @@ class Crawler(object):
     def conn_url(self, url):
         return self.session.get(url)
 
-    def get_page_content(self, page):
-        return BeautifulSoup(page.content, "html.parser")
+    @staticmethod
+    def get_content(page):
+        return BeautifulSoup(page, "html.parser")
 
-    def get_links(self, page):
+    @staticmethod
+    def get_links(page):
         return page.find_all('a', href=re.compile(r'/p$'))
 
-    def save_on_db(self, links, db):
+    @staticmethod
+    def save_on_db(links, db):
         for link in links:
             url = link.get('href')
             product = db.query(Product).filter_by(url=url)
@@ -46,7 +49,7 @@ class Crawler(object):
                 url = future_to_url[future]
                 try:
                     page = future.result()
-                    links = self.get_links(self.get_page_content(page))
+                    links = self.get_links(self.get_content(page.content))
                     self.save_on_db(links, db)
                 except Exception as exc:
                     print('%r generated an exception: %s' % (url, exc))
