@@ -1,11 +1,19 @@
 from sqlalchemy import Column, String, Integer, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy_utils import create_database
+from sqlalchemy_utils import create_database, ChoiceType
 
 __author__ = 'lucas'
 
 Base = declarative_base()
+
+
+STATUS_CHOICES = (
+    ('WAIT', 'wait'),
+    ('ENQUEUED', 'Enqueued'),
+    ('PROCESSED', 'Processed'),
+    ('INDEXED', 'Indexed'),
+)
 
 
 class Product(Base):
@@ -15,6 +23,7 @@ class Product(Base):
     url = Column(String, unique=True, nullable=False)
     title = Column(String,  nullable=True)
     name = Column(String,  nullable=True)
+    status = Column(ChoiceType(STATUS_CHOICES, impl=String()), default='WAIT')
 
 
 # engine = create_engine('sqlite:///database.sqlite')
@@ -31,7 +40,7 @@ def create_db(database):
 
 
 def get_engine_db():
-    return create_engine('postgresql://postgres:123@localhost:5432/desafiox')
+    return create_engine('postgresql://postgres:123@localhost:5432/captura')
 
 if __name__ == '__main__':
-    create_db('desafiox')
+    create_db('captura')
