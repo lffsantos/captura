@@ -27,8 +27,34 @@ pip install -r requirements.txt
 py.test
 ```
 
-# Como Executar a aplicação
+# Como Executar:
 
- ```console
- python database.py
- ```
+ - Criar  Banco e dados da Aplicação;
+    
+        pip install rows
+ 
+ - Rodar Crawler e Enfileirar mensagens;  
+
+    `N`: Número de links por mensagem. ex: 7  
+    `queue_name`: nome da fila. ex: produtos 
+    
+    Opção 1:  
+    
+        python crawler.py
+        python enqueuer.py -l `N` -q `queue_name`
+        
+    Opção 2:
+        
+        python flow.py -l `N` -q `queue_name`
+
+- Rodar o Processor:
+    `N`: Número de workers por aplicação.   
+    `queue_name`: nome da fila. ex: produtos
+     
+        python processor.py -w `N` -q `queue_name`
+
+- Rodar o Indexer:
+  
+        python indexer.py
+        
+        
