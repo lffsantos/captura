@@ -55,7 +55,7 @@ Regras:
 
 ## Módulos  
  
-### crawler.py (SingleProcess) 
+### crawler.py (MultiThread) 
    - Responsável por capturar os links da url informada.  
  
 ### enqueuer.py (SingleProcess) 
