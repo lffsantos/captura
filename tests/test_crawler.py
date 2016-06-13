@@ -1,7 +1,6 @@
+from db.model import Product
 import random
 import pytest
-
-from config.database import Product
 from crawler import Crawler
 from .helper import gen_engine
 from sqlalchemy.orm import Session

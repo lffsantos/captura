@@ -1,5 +1,4 @@
-import json
-from config.database import Product
+from db.model import Product
 from processor import Processor
 from products import Product_db
 import pytest

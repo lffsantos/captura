@@ -1,4 +1,4 @@
-from config.database import Product
+from db.model import Product
 from sqlalchemy.orm import Session
 
 __author__ = 'lucas'

@@ -1,5 +1,6 @@
 import csv
-from config.database import get_engine_db
+from config_file import appconfig
+from database import get_engine_db
 from file_util import create_file
 from products import Product_db
 
@@ -30,4 +31,4 @@ class Indexer(object):
 if __name__ == '__main__':
     product_db = Product_db(get_engine_db())
     products = product_db.get_products_for_status('PROCESSED')
-    Indexer.export_data_to_csv('products.csv', products)
+    Indexer.export_data_to_csv(appconfig['local_file_name'], products)

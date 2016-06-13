@@ -1,4 +1,4 @@
-from config.database import Product
+from db.model import Product
 from products import Product_db
 import pytest
 from .helper import gen_engine, gen_product, insert_products

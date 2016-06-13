@@ -2,10 +2,9 @@ import argparse
 import json
 
 from datetime import datetime
-from config.database import get_engine_db
+from database import get_engine_db
 from pika import BlockingConnection, ConnectionParameters
 from products import Product_db
-
 
 __author__ = 'lucas'
 
@@ -75,7 +74,7 @@ if __name__ == '__main__':
     e.g: ./enqueuer.py -l 7 -q queue
     """
     parser = argparse.ArgumentParser()
-    parser.add_argument("-l", "--links_per_msg", type=int, default=100,
+    parser.add_argument("-l", "--links_per_msg", type=int, default=10,
                         help="How many links per message do you want?")
     parser.add_argument("-q", "--queue", help="sqs queue name to connect to")
     parser.add_argument("-t", "--test", type=bool, default=False,

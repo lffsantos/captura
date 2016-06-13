@@ -1,7 +1,7 @@
 import argparse
 import concurrent.futures
 import json
-from config.database import get_engine_db
+from database import get_engine_db
 from parser import Parser
 from pika import BlockingConnection, ConnectionParameters
 from products import Product_db
@@ -44,7 +44,6 @@ if __name__ == "__main__":
     channel = connection.channel()
 
     def callback(ch, method, properties, body):
-        print(body)
         print(" [x] Received %r" % json.loads(body.decode('utf-8')))
         Processor.run_processor(
             json.loads(body.decode('utf-8')), args.workers, args.test

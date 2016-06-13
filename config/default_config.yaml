@@ -1,3 +1,0 @@
-raabbitmq_server: localhost
-database: captura_test
-raabbitmq_queue: products_test

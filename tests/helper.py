@@ -1,9 +1,9 @@
+from db.model import Base, Product
 from pika import BlockingConnection, ConnectionParameters
 import random as rand
 from string import ascii_letters
 from random import choice
 import pytest
-from config.database import Product, Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy_utils import drop_database, create_database
@@ -64,7 +64,6 @@ def insert_products(products, engine):
         p = Product(**product)
         session_db.add(p)
         session_db.commit()
-
 
 
 def connection_queue(queue='test'):

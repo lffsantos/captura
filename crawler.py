@@ -1,8 +1,9 @@
+from database import get_engine_db
+from db.model import Product
 import re
 import requests
 import concurrent.futures
 
-from config.database import Product, get_engine_db
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import Session
 
