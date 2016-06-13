@@ -1,8 +1,10 @@
-from config.database import  Product
 import random
 import pytest
+
+from config.database import Product
 from crawler import Crawler
-from .helper import session_db
+from .helper import gen_engine
+from sqlalchemy.orm import Session
 
 __author__ = 'lucas'
 
@@ -57,9 +59,10 @@ def test_get_links(html, expected):
     (gen_html_doc(gen_links(4, 1)), 3),
     (gen_html_doc(gen_links(5, 3)), 3),
 ])
-def test_save_on_db(html, expected, session_db):
+def test_save_on_db(html, expected, gen_engine):
     page_content = Crawler.get_content(html)
     links = Crawler.get_links(page_content)
-    Crawler.save_on_db(links, session_db)
-    products = session_db.query(Product).all()
+    db_session = Session(bind=gen_engine)
+    Crawler.save_on_db(links, db_session)
+    products = db_session.query(Product).all()
     assert len(list(products)) == expected

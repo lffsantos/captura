@@ -30,17 +30,22 @@ class Product(Base):
 # engine = create_engine('postgresql://postgres:123@localhost:5432/desafio')
 
 
+engine = create_engine('postgresql://postgres:123@localhost:5432/captura')
+
+
 def create_db(database):
     url_db = 'postgresql://postgres:123@localhost:5432/'+database
     create_database(url_db)
-    engine = create_engine(url_db)
     session = sessionmaker()
     session.configure(bind=engine)
     Base.metadata.create_all(engine)
 
 
-def get_engine_db():
-    return create_engine('postgresql://postgres:123@localhost:5432/captura')
+def get_engine_db(test=None):
+    if test:
+        from tests.helper import get_engine_test
+        return get_engine_test()
+    return engine
 
 if __name__ == '__main__':
     create_db('captura')

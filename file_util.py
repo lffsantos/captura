@@ -1,19 +1,17 @@
 import csv
+import os
 
 __author__ = 'lucas'
 
 
 def has_header(file, header):
-    try:
-        with open(file, 'r') as csvfile:
-            reader = csv.reader(csvfile)
-            for row in reader:
-                if list(row) != header:
-                    raise ValueError('invalid header')
+    with open(file, 'r') as csvfile:
+        reader = csv.reader(csvfile)
+        for row in reader:
+            if list(row) != header:
+                raise ValueError('invalid header')
 
-                return True
-    except FileNotFoundError:
-        raise FileNotFoundError()
+            return True
 
 
 def add_header(file, header):
@@ -23,6 +21,10 @@ def add_header(file, header):
 
 
 def create_file(file, header):
-    if not has_header(file, header):
+    if not os.path.exists(file):
         add_header(file, header)
+    else:
+        if not has_header(file, header):
+            add_header(file, header)
+
 

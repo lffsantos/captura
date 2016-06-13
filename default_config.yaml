@@ -1,0 +1,3 @@
+raabbitmq_server: localhost
+database: captura
+raabbitmq_queue: products
