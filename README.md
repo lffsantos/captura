@@ -23,7 +23,8 @@ Regras:
 ```
 
 # Como Executar:
-
+ - Iniciar o servidor de fila rabbitMQ
+ 
  - Criar  Banco e dados da Aplicação;
     
         python databases.py
@@ -42,7 +43,7 @@ Regras:
         
         python flow.py -l `N` -q `queue_name`
 
-- Rodar o Processor: (pode ser rodado em background, ele fica olhando a fila indicada esperando msg)
+- Rodar o Processor: (pode ser rodado em background, ele fica olhando a fila indicada esperando msg)  
     `N`: Número de workers por aplicação.   
     `queue_name`: nome da fila. ex: produtos
      
@@ -54,7 +55,7 @@ Regras:
 
 ## Módulos  
  
-### crawler.py (singleProcess) 
+### crawler.py (SingleProcess) 
    - Responsável por capturar os links da url informada.  
  
 ### enqueuer.py (SingleProcess) 
@@ -68,3 +69,11 @@ Regras:
 ### indexer.py (SingleProcess)
    - Responsável por gerar o arquivo `csv` , faz a consulta no banco de dados por todos os registros processados e indexa em uma planilha `csv`.  
    - O indexer pode ser rodado sempre que desejado, atualizar os dados da planilha. caso não tenha dados novos que tenham sido processados nada sera indexado. Mas caso o processor tenha consumido novas mensagens e atualizado informações a planilha sera atualizado com esses novos valores.  
+
+## Configuração    
+   - Configurações da aplicação estão no arquivo `default_config.yaml` e podem ser alteradas de acordo com a sua configuração local  
+ ```console
+      raabbitmq_server: localhost    
+      database: postgresql://postgres:123@localhost:5432/captura   
+      local_file_name: products.csv    
+ ```
