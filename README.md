@@ -53,18 +53,18 @@ Regras:
         python indexer.py
 
 ## Módulos  
-
- ### crawler.py (singleProcess) 
+ 
+### crawler.py (singleProcess) 
    - Responsável por capturar os links da url informada.  
  
- ### enqueuer.py (singleProcess) 
+### enqueuer.py (SingleProcess) 
    - Responsável por enfileirar as mensagens que precisam ter atualizada as informações título e nome  
  
- ### processor.py (Multiprocess)
+### processor.py (Multiprocess)
    - Responsável por ler as mensagens da fila indicada e atualizar as informações no banco de dados.
    - Essa é uma aplicação multiprocess, pode ficar rodando em background e é possível subir quantas aplicações quiser, é possível adicionar mais maquinas e/ou mais processos para aumentar a velocidade de processamento das mensagens.
    - O processor fica olhando para a fila indicada assim que chega uma mensagem algum processo livre pega ela e consome.
 
- ### indexer.py (SingleProcess)
+### indexer.py (SingleProcess)
    - Responsável por gerar o arquivo `csv` , faz a consulta no banco de dados por todos os registros processados e indexa em uma planilha `csv`.  
-    - O indexer pode ser rodado sempre que desejado, atualizar os dados da planilha. caso não tenha dados novos que tenham sido processados nada sera indexado. Mas caso o processor tenha consumido novas mensagens e atualizado informações a planilha sera atualizado com esses novos valores.  
+   - O indexer pode ser rodado sempre que desejado, atualizar os dados da planilha. caso não tenha dados novos que tenham sido processados nada sera indexado. Mas caso o processor tenha consumido novas mensagens e atualizado informações a planilha sera atualizado com esses novos valores.  
