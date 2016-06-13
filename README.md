@@ -20,7 +20,6 @@ Regras:
  
  ```console
  py.test
-
 ```
 
 # Como Executar:
@@ -55,7 +54,7 @@ Regras:
 
 ## Módulos  
 
- ### crawler.py (multithread)
+ ### crawler.py (singleProcess) 
    - Responsável por capturar os links da url informada.  
  
  ### enqueuer.py (singleProcess) 
