@@ -29,6 +29,13 @@ class Processor(object):
 
 
 if __name__ == "__main__":
+    """
+    Faz a leitura das mensagens na fila conectando nas urls recebidas na
+    mensagem e preenche as informações adicionais do produto como
+    título e nome.
+    e.g : python processor.py -w workers -q queue_name
+
+    """
     parser = argparse.ArgumentParser()
     parser.add_argument("-w", "--workers", type=int, default=4,
                         help="number of workers for parallel processing")

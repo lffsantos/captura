@@ -53,7 +53,7 @@ class Enqueuer(object):
         channel.queue_declare(queue=args.queue)
 
         list_links = calculate_messages(product_db, args.links_per_msg)
-        if not list_links:
+        if not list_links[0]:
             return 0
 
         for links in list_links:

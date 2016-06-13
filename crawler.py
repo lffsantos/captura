@@ -1,3 +1,4 @@
+import argparse
 from database import get_engine_db
 from db.model import Product
 import re
@@ -56,9 +57,11 @@ class Crawler(object):
 
 
 if __name__ == '__main__':
+    """
+    Realiza a captura de todos os links de produto de urls do site..
+    www.epocacosmeticos
+    url default: 'http://www.epocacosmeticos.com.br'
+    """
     urls = ['http://www.epocacosmeticos.com.br']
     crawler = Crawler(urls)
-    # start = time.time()
     crawler.run()
-    # end = time.time()
-    # print(end-start)

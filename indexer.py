@@ -29,6 +29,12 @@ class Indexer(object):
         Product_db(get_engine_db(cls._test)).update_status_products(keys, 'INDEXED')
 
 if __name__ == '__main__':
+    """
+    Responsável por gerar o arquivo 'file.csv', pesquisa no banco de dados
+    os produtos que foram processados e gera um arquivo com os dados
+    desse produto.
+    e.g: python indexer.py
+    """
     product_db = Product_db(get_engine_db())
     products = product_db.get_products_for_status('PROCESSED')
     Indexer.export_data_to_csv(appconfig['local_file_name'], products)
