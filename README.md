@@ -27,7 +27,7 @@ Regras:
  
  - Criar  Banco de dados da Aplicação;
     
-        python databases.py
+        python database.py
  
  - Rodar Crawler e Enfileirar mensagens;  
     
