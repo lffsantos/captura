@@ -72,6 +72,7 @@ Regras:
 
 ## Configuração    
    - Configurações da aplicação estão no arquivo `default_config.yaml` e podem ser alteradas de acordo com a sua configuração local  
+   
         raabbitmq_server: localhost  
         database: postgresql://postgres:123@localhost:5432/captura  
         local_file_name: products.csv  
