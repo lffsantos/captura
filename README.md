@@ -25,7 +25,7 @@ Regras:
 # Como Executar:
  - Iniciar o servidor de fila rabbitMQ
  
- - Criar  Banco e dados da Aplicação;
+ - Criar  Banco de dados da Aplicação;
     
         python databases.py
  
