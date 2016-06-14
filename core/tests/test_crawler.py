@@ -1,9 +1,11 @@
-from db.model import Product
 import random
 import pytest
-from crawler import Crawler
-from .helper import gen_engine
+
 from sqlalchemy.orm import Session
+
+from core.db.model import Product
+from core.modules.crawler import Crawler
+from core.tests.fixtures.helper import gen_engine
 
 __author__ = 'lucas'
 

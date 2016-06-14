@@ -1,8 +1,11 @@
-from db.model import Product
-from products import Product_db
 import pytest
-from .helper import gen_engine, gen_product, insert_products
+
 from sqlalchemy.orm import Session
+
+from core.db.model import Product
+from core.db.products import Product_db
+from core.tests.fixtures.helper import gen_product, insert_products, gen_engine
+
 
 
 __author__ = 'lucas'

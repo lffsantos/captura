@@ -13,21 +13,33 @@ Regras:
 # Como Desenvolver
 
  1. clone o respositório.
- 2. crie um virtualenvo com Python 3.5.
+ 2. crie uma virtualenv com Python 3.5. (https://virtualenv.pypa.io/en/stable/)
  3. Ative o virtualenv.
  4. Instale as dependências.
- 5. Execute os testes.
+ 5. Instale o projeto
+ 6. Execute os testes.
  
  ```console
+ git clone git@github.com:lffsantos/captura.git
+ cd captura
+ virtualenv -p python3 .virtualenv
+ source .virtualenv/bin/activate
+ pip install -r requirements.txt
+ python setup.py install
  py.test
 ```
 
 # Como Executar:
  - Iniciar o servidor de fila rabbitMQ
  
+ - Instalar Requirements e a Aplicação;  
+ 
+        pip install -r requirements.txt  
+        python setup.py install
+ 
  - Criar  Banco de dados da Aplicação;
     
-        python database.py
+        python core/db/database.py
  
  - Rodar Crawler e Enfileirar mensagens;  
     
@@ -36,8 +48,8 @@ Regras:
     
     Opção 1:  
     
-        python crawler.py
-        python enqueuer.py -l `N` -q `queue_name`
+        python core/modules/crawler.py
+        python core/modules/enqueuer.py -l `N` -q `queue_name`
         
     Opção 2:
         
@@ -47,13 +59,13 @@ Regras:
     `N`: Número de workers por aplicação.   
     `queue_name`: nome da fila. ex: produtos
      
-        python processor.py -w `N` -q `queue_name`
+        python core/modules/processor.py -w `N` -q `queue_name`
 
 - Rodar o Indexer:
   
-        python indexer.py
+        python core/modules/indexer.py
 
-## Módulos  
+## Módulos (core/modules) 
  
 ### crawler.py (MultiThread) 
    - Responsável por capturar os links da url informada.  

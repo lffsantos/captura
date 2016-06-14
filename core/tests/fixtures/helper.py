@@ -1,12 +1,14 @@
-from db.model import Base, Product
-from pika import BlockingConnection, ConnectionParameters
-import random as rand
-from string import ascii_letters
-from random import choice
 import pytest
+import random as rand
+
+from string import ascii_letters
+from core.db.model import Base, Product
+from pika import BlockingConnection, ConnectionParameters
+from random import choice
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy_utils import drop_database, create_database
+
 
 url_db = 'postgresql://postgres:123@localhost:5432/desafio_test'
 

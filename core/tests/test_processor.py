@@ -1,9 +1,11 @@
-from db.model import Product
-from processor import Processor
-from products import Product_db
 import pytest
+
 from sqlalchemy.orm import Session
-from tests.helper import gen_product, insert_products, gen_engine
+
+from core.db.model import Product
+from core.modules.processor import Processor
+from core.db.products import Product_db
+from core.tests.fixtures.helper import gen_product, insert_products, gen_engine
 
 __author__ = 'lucas'
 

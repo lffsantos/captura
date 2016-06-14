@@ -1,5 +1,7 @@
-from parser import Parser
 import pytest
+
+from core.utils.parser import Parser
+
 __author__ = 'lucas'
 
 

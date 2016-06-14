@@ -1,10 +1,11 @@
 import argparse
 import concurrent.futures
 import json
-from database import get_engine_db
-from parser import Parser
+
+from core.db.database import get_engine_db
+from core.db.products import Product_db
+from core.utils.parser import Parser
 from pika import BlockingConnection, ConnectionParameters
-from products import Product_db
 
 __author__ = 'lucas'
 

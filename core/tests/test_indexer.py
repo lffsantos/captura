@@ -1,8 +1,9 @@
-import os
-from indexer import Indexer
-from products import Product_db
 import pytest
-from tests.helper import gen_product, gen_engine, insert_products
+import os
+
+from core.modules.indexer import Indexer
+from core.db.products import Product_db
+from core.tests.fixtures.helper import gen_product, insert_products, gen_engine
 
 __author__ = 'lucas'
 

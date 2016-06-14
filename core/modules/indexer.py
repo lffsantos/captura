@@ -1,8 +1,10 @@
 import csv
-from config_file import appconfig
-from database import get_engine_db
-from file_util import create_file
-from products import Product_db
+
+from config.config_file import appconfig
+from core.db.database import get_engine_db
+from core.utils.file_util import create_file
+from core.db.products import Product_db
+
 
 __author__ = 'lucas'
 

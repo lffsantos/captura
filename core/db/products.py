@@ -1,5 +1,6 @@
-from db.model import Product
 from sqlalchemy.orm import Session
+
+from core.db.model import Product
 
 __author__ = 'lucas'
 
