@@ -1,12 +1,12 @@
 import argparse
 import pytest
 
-from products import Product_db
-from enqueuer import send_queue_msg, calculate_messages, Enqueuer
-from tests.helper import (
-    connection_queue, close_conn_queue, gen_product, gen_engine,
-    insert_products
+from core.db.products import Product_db
+from core.modules.enqueuer import send_queue_msg, calculate_messages, Enqueuer
+from core.tests.fixtures.helper import (
+    connection_queue, close_conn_queue, gen_product, insert_products, gen_engine
 )
+
 
 __author__ = 'lucas'
 

@@ -1,12 +1,13 @@
-import argparse
-from database import get_engine_db
-from db.model import Product
 import re
 import requests
 import concurrent.futures
 
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import Session
+
+from core.db.database import get_engine_db
+from core.db.model import Product
+
 
 __author__ = 'lucas'
 

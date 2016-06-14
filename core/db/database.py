@@ -1,8 +1,9 @@
-from db.model import Base
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import create_database
-from config_file import appconfig
+from config.config_file import appconfig
+
+from core.db.model import Base
 
 __author__ = 'lucas'
 
@@ -20,7 +21,7 @@ def create_db():
 
 def get_engine_db(test=None):
     if test:
-        from tests.helper import get_engine_test
+        from core.tests.fixtures.helper import get_engine_test
         return get_engine_test()
     return engine
 

@@ -1,6 +1,8 @@
 import argparse
-from crawler import Crawler
-from enqueuer import Enqueuer
+
+from core.modules.crawler import Crawler
+from core.modules.enqueuer import Enqueuer
+
 
 __author__ = 'lucas'
 
