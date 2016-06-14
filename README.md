@@ -22,7 +22,7 @@ Regras:
  ```console
  git clone git@github.com:lffsantos/captura.git
  cd captura
- virtualenv -p python3 .venv
+ virtualenv -p python3 .virtualenv
  source .virtualenv/bin/activate
  pip install -r requirements.txt
  python setup.py install
